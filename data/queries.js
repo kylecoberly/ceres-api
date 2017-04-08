@@ -3,6 +3,10 @@ var serializers = require("./serializers");
 var pluralize = require("pluralize");
 
 module.exports = {
+    getStudents,
+    getStudent,
+    getCohorts,
+    getCohort,
     getInstructors,
     getInstructor,
     getWorkshopScheduleDays,
@@ -13,6 +17,20 @@ module.exports = {
     getWorkshopSchedule
 };
 
+function getStudents(){
+    return database("student").select();
+}
+function getStudent(id){
+    return database("student").select().where({id}).first();
+}
+function getCohorts(){
+    return database("cohort").pluck("id").then(function(cohorts){
+        return Promise.all(cohorts.map(getCohort));
+    });
+}
+function getCohort(id){
+    return joinRelatedData("cohort", "student", id);
+}
 function getInstructors(){
     return database("instructor").select();
 }

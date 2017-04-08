@@ -25,9 +25,25 @@ var instructors = new JSONAPISerializer("instructor", {
     attributes: ["first-name", "last-name"]
 });
 
+var cohorts = new JSONAPISerializer("cohort", {
+    attributes: ["label", "first-day", "last-day", "hiring-deadline", "is-active", "students"],
+    students: {
+        ref: true
+    }
+});
+
+var students = new JSONAPISerializer("student", {
+    attributes: ["first-name", "last-name", "hire-date", "cohort"],
+    cohort: {
+        ref: true
+    }
+});
+
 module.exports = {
     workshopSchedules,
     workshopScheduleWeeks,
     workshopScheduleDays,
-    instructors
+    instructors,
+    cohorts,
+    students
 };

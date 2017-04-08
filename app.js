@@ -7,6 +7,8 @@ var bodyParser = require("body-parser");
 var cors = require("cors");
 
 var instructors = require("./routes/instructors");
+var cohorts = require("./routes/cohorts");
+var students = require("./routes/students");
 var workshopScheduleDays = require("./routes/workshop-schedule-days");
 var workshopScheduleWeeks = require("./routes/workshop-schedule-weeks");
 var workshopSchedules = require("./routes/workshop-schedules");
@@ -21,6 +23,8 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use("/api/v1/instructors", instructors);
+app.use("/api/v1/cohorts", cohorts);
+app.use("/api/v1/students", students);
 app.use("/api/v1/workshop-schedule-days", workshopScheduleDays);
 app.use("/api/v1/workshop-schedule-weeks", workshopScheduleWeeks);
 app.use("/api/v1/workshop-schedules", workshopSchedules);
