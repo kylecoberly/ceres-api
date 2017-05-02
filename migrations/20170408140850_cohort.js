@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
         cohort.date("last-day");
         cohort.date("hiring-deadline");
         cohort.string("label");
+        cohort.string("logo-number");
         cohort.boolean("is-active");
     });  
 };

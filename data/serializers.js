@@ -26,7 +26,7 @@ var instructors = new JSONAPISerializer("instructor", {
 });
 
 var cohorts = new JSONAPISerializer("cohort", {
-    attributes: ["label", "first-day", "last-day", "hiring-deadline", "is-active", "students"],
+    attributes: ["label", "logo-number", "first-day", "last-day", "hiring-deadline", "is-active", "students"],
     students: {
         ref: true
     }
