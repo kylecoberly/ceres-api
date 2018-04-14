@@ -9,8 +9,8 @@ router.get("/", function(request, response){
     });
 });
 router.get("/:id", function(request, response){
-    queries.getCohort(request.params.id).then(cohort => {
-        response.json(cohortsSerializer.serialize(cohort));
+    queries.getAggregateCohort(request.params.id).then(cohort => {
+        response.json(cohort);
     });
 });
 

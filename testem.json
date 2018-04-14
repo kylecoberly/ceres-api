@@ -1,0 +1,13 @@
+{
+    "framework": "mocha",
+    "src_files": [
+        "tests/**/*.js",
+        "./**/*.js"
+    ],
+    "launchers": {
+        "Mocha": {
+            "command": "npm run mocha"
+        }
+    },
+    "launch_in_dev": ["Mocha"]
+}

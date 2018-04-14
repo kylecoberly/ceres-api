@@ -33,9 +33,12 @@ var cohorts = new JSONAPISerializer("cohort", {
 });
 
 var students = new JSONAPISerializer("student", {
-    attributes: ["first-name", "last-name", "hire-date", "cohort"],
-    cohort: {
-        ref: true
+    attributes: ["first_name", "last_name", "performances"],
+    performances: {
+        ref: "id",
+        included: true,
+        attributes: ["id", "score", "updated_at", "standard_id"] ,
+        id: "id"
     }
 });
 
